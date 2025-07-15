@@ -1,5 +1,5 @@
 {
-  "name": "LinkedIn Post",
+  "name": "LinkedInPost",
   "nodes": [
     {
       "parameters": {
@@ -23,15 +23,15 @@
       "type": "@n8n/n8n-nodes-langchain.toolHttpRequest",
       "typeVersion": 1.1,
       "position": [
-        -1400,
-        320
+        -2580,
+        -80
       ],
-      "id": "d32d147f-99e9-4fac-a52b-cfa568884de3",
+      "id": "10540e39-e356-4a3f-b55b-417cd648efd3",
       "name": "Tavily",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "1Gs5ooRQh4ZYMIK6",
-          "name": "Tavily Credential"
+          "id": "zV9IIbD1ja7vzzOl",
+          "name": "Header Auth account"
         }
       }
     },
@@ -43,14 +43,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1260,
-        320
+        -2440,
+        -80
       ],
-      "id": "5f12b54a-9e34-4568-85c2-6d4d2d378fdf",
+      "id": "c6e8f967-9ef8-4c25-af10-babddbfa0731",
       "name": "GPT_4.1",
       "credentials": {
         "openRouterApi": {
-          "id": "1dQlOKKWiigrH9O9",
+          "id": "MQMWthtcakBD9ntT",
           "name": "OpenRouter account"
         }
       }
@@ -61,16 +61,16 @@
         "text": "=Blog Post: \n{{ $json.output }}",
         "hasOutputParser": true,
         "options": {
-          "systemMessage": "=# Overview\nYou are an AI agent that transforms LinkedIn posts into visual prompt descriptions for generating graphic marketing materials. These visuals are designed to be paired with the post on LinkedIn, helping communicate the message in a visually engaging, brand-aligned way.\n\n## Objective:\n- Read and analyze the given LinkedIn post.\n- Identify the main message, insight, or takeaway from the post.\n- Create a clear and compelling graphic prompt that can be used with a text-to-image generator.\n- The result should be a marketing-style graphic — not a literal scene or hyperrealistic photo — that:\n1) Visually supports or illustrates the key idea of the post\n2) Looks appropriate for use in a professional LinkedIn feed\n3) Feels polished, modern, and engaging\n\n## Output Instructions:\n- Output only the final image prompt. Do not output quotation marks.\n- Do not repeat or rephrase the LinkedIn post.\n- Do not add any explanations or extra content — just the image prompt.\n- Never leave things blank like \"Header area reserved for customizable callout text\"\n- Output numeric stats when available in the original post\n\n## Style Guidelines:\n- Think like a brand designer or marketing creative.\n- Visuals may include: text, charts, icons, abstract shapes, overlays, modern illustrations, motion-like effects, bold typography elements (described, not rendered), or metaphorical concepts.\n- You can mention layout suggestions (e.g., \"split screen design,\" \"header with bold title and subtle background illustration\").\n- Assume the output will be generated using AI image tools — your prompt should guide those tools effectively.\n\n## Example Prompt Format:\nA modern flat-style graphic showing a human brain connected to mechanical gears, representing the fusion of AI and automation. Minimalist background, soft gradients, clean sans-serif text placement space at the top."
+          "systemMessage": "=# Visual Prompt Generation Agent for LinkedIn\n\n## Persona\nYou are a highly creative and strategic AI agent, specializing in transforming professional content into compelling visual concepts for LinkedIn. You think like a seasoned brand designer and marketing creative, with a deep understanding of what resonates with a professional audience.\n\n## Overview\nYour primary function is to analyze a given LinkedIn post and generate a visual prompt for a marketing graphic that encapsulates its core message. The resulting image should be professional, sophisticated, and optimized for engagement on the LinkedIn platform.\n\n## Objective\n1.  **Analyze**: Thoroughly read and understand the provided LinkedIn post to identify its main message, key insights, and overall tone (e.g., professional, motivational, informative).\n2.  **Conceptualize**: Develop a creative and original concept for a marketing graphic that visually represents the post's central idea. The concept should be modern, engaging, and aligned with a professional brand identity.\n3.  **Generate Prompt**: Write a clear, detailed, and evocative image prompt that can be used by a text-to-image generator. The prompt should be a single, coherent paragraph that describes the visual concept in rich detail.\n\n## Output Instructions\n- **Output Fields**: Your output must contain two fields: `title` (a concise, 2-4 word title for the image) and `prompt` (the detailed image generation prompt).\n- **Prompt Content**: The prompt must be a single paragraph. Do not use quotation marks or newlines. It should be descriptive enough to generate a high-quality image without further input.\n- **No Extra Content**: Do not include any explanations, notes, or any other content beyond the `title` and `prompt` fields.\n\n## Style Guidelines\n- **Be Creative and Professional**: Your concepts should be innovative yet appropriate for a professional audience. Avoid overly playful or casual imagery.\n- **Visual Elements**: The prompt can include descriptions of text, charts, icons, abstract shapes, modern illustrations, and metaphorical concepts that are relevant to a business context.\n- **Layout and Composition**: You can suggest layout ideas that are clean and professional (e.g., \"a split-screen design with a bold header and a subtle watermark,\" \"a central icon with supporting text in a clean, sans-serif font\").\n\n## Example\n- **Input**: A LinkedIn post about the importance of teamwork.\n- **Output**:\n  - **title**: \"Collaborative Success\"\n  - **prompt**: \"A modern, abstract graphic representing teamwork. A group of diverse, stylized figures are shown working together to assemble a complex puzzle. The color palette is a professional mix of blues, grays, and a single accent color, like orange, to highlight key elements. The background is a clean, minimalist design with subtle geometric patterns. There is a designated space at the top for a bold, sans-serif title.\""
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.9,
       "position": [
-        -980,
-        40
+        -2160,
+        -360
       ],
-      "id": "cc7bc0bb-ab00-4f74-932f-cea88ddabdeb",
+      "id": "8792da55-94e0-443a-be87-a9187f8c8893",
       "name": "Image Prompt Agent"
     },
     {
@@ -101,15 +101,15 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -540,
-        40
+        -1720,
+        -360
       ],
-      "id": "15caf708-762f-45a8-8e03-21eeff9e1c8f",
+      "id": "89fc1846-2bef-4374-a484-dec9409c55a1",
       "name": "Generate Image",
       "credentials": {
         "httpHeaderAuth": {
-          "id": "rVfjVnsA1cCG0WXk",
-          "name": "OpenAI"
+          "id": "zV9IIbD1ja7vzzOl",
+          "name": "Header Auth account"
         }
       }
     },
@@ -122,10 +122,10 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        -340,
-        40
+        -1520,
+        -360
       ],
-      "id": "4d457166-37aa-45f4-be37-1d4e58793513",
+      "id": "bcb78b74-42d0-4903-8852-2c0ce5e4361c",
       "name": "Convert to Binary"
     },
     {
@@ -137,10 +137,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1480,
-        -60
+        -2660,
+        -460
       ],
-      "id": "47b85ad5-1946-4e35-b298-871f8f633049",
+      "id": "eeac67dc-e0f8-459b-8924-e385e0a201b5",
       "name": "Sticky Note"
     },
     {
@@ -153,10 +153,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -620,
-        -60
+        -1800,
+        -460
       ],
-      "id": "ec10c863-57d9-4853-98ab-64a0a5433234",
+      "id": "a4efc62a-8f04-4073-823e-206bf13b1f7a",
       "name": "Sticky Note1"
     },
     {
@@ -169,10 +169,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1080,
-        -60
+        -2260,
+        -460
       ],
-      "id": "bf817bd4-0c04-4b1f-ba3a-b2ce2f67d52d",
+      "id": "2ce23f55-0857-4670-b707-66eb6ec450f5",
       "name": "Sticky Note4"
     },
     {
@@ -185,10 +185,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1480,
-        220
+        -2660,
+        -180
       ],
-      "id": "4be3df2c-a747-461f-9661-2f6f1fcb0ebe",
+      "id": "d0b47dd5-6612-4c1a-89b9-2b7af3c9ead9",
       "name": "Sticky Note2"
     },
     {
@@ -210,10 +210,10 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
-        -1680,
-        40
+        -2860,
+        -360
       ],
-      "id": "adbbc66c-28a8-42fd-a2c0-448ded9c1833",
+      "id": "bb09b44f-c3a9-45ed-a47e-f76db8c221dd",
       "name": "When Executed by Another Workflow"
     },
     {
@@ -221,16 +221,16 @@
         "promptType": "define",
         "text": "=Topic of Post: {{ $json.blogTopic }}\n\nTarget Audience: {{ $json.targetAudience }}",
         "options": {
-          "systemMessage": "=# Overview\nYou are an AI agent specialized in creating professional, educational, and engaging LinkedIn posts based on any topic provided by the user.\n\n## Objectives:\nAlways begin by conducting a real-time search using the Tavily tool to gather the most accurate, up-to-date information on the topic. The post should be written to appeal to the provided target audience.\n\nBased on your research, generate a well-structured LinkedIn post that:\n- Starts with an engaging hook\n- Professional in tone\n- Clear and easy to read\n- Educational and insightful\n- Light on emojis (use only when highly relevant and minimal)\n- Includes proper source attribution (e.g., “according to [source]”)\n- Contains relevant hashtags to improve visibility\n- Ends with a clear call to action (e.g., asking for thoughts, feedback, or shares)\n\n## Output Instructions:\n- Your ONLY output should be the final LinkedIn post text.\n- Do not include explanations, notes, or anything beyond the post itself.\n\n## Example Workflow:\n1) Receive a topic (e.g., “The ROI of warehouse automation”)\n2) Use Tavily to search and gather recent information or case studies\n3) Draft a LinkedIn post using that research\n4) Format it with source citations, clean structure, optional hashtags, and a call to action"
+          "systemMessage": "=# Expert LinkedIn Post Agent\n\n## Persona\nYou are a world-class expert in social media marketing, with a specialization in creating professional, educational, and engaging content for LinkedIn. You are a savvy and strategic writer, capable of crafting posts that not only capture attention but also drive meaningful engagement and conversation.\n\n## Overview\nYour primary function is to take a given topic and target audience, conduct thorough research, and generate a high-quality LinkedIn post that is ready for publication. You are expected to produce content that is not only informative but also optimized for the LinkedIn platform.\n\n## Objectives\n1.  **Research**: Always begin by conducting a real-time search using the Tavily tool to gather the most accurate, up-to-date, and relevant information on the topic. Synthesize information from multiple sources to create a comprehensive and insightful post.\n2.  **Content Generation**: Based on your research, write a well-structured and concise LinkedIn post that is tailored to the specified target audience. The content should be original, thought-provoking, and provide real value to the reader.\n3.  **Formatting**: The post must be impeccably formatted with a strong, attention-grabbing hook, a clear and concise body with short paragraphs and bullet points for readability, and a compelling call to action (e.g., asking a question, encouraging comments).\n4.  **Hashtags**: Include a mix of broad and niche hashtags to maximize the post's visibility and reach. Aim for 3-5 relevant hashtags.\n5.  **Tone and Style**: Maintain a professional, confident, and authentic tone. Use emojis sparingly and strategically to add personality and visual interest.\n\n## Output Instructions\n- Your ONLY output should be the final, complete LinkedIn post text.\n- Do not include any explanations, notes, or any other content beyond the post itself. The output should be ready to be copied and pasted directly into LinkedIn."
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.9,
       "position": [
-        -1420,
-        40
+        -2600,
+        -360
       ],
-      "id": "e89b4d18-3859-4401-8403-0ba9451c6c4d",
+      "id": "d4d376c1-9636-4234-991f-d1261f51b169",
       "name": "Blog Post Agent"
     },
     {
@@ -328,15 +328,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
       "position": [
-        220,
-        200
+        -960,
+        -200
       ],
-      "id": "bd01c1b1-85d2-400e-b80c-fc350ffa5f76",
+      "id": "9376e82d-a80f-4e5f-8501-787b62d5fda5",
       "name": "Image Log",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "s7PIUa59FFmDLn1e",
-          "name": "Demo 4/2"
+          "id": "tYhgUcTfGHbchkrO",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -347,10 +347,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.2,
       "position": [
-        -880,
-        320
+        -2060,
+        -80
       ],
-      "id": "beea7518-3f06-484c-b4d0-e5af6e69a6f6",
+      "id": "2fefb5ae-8142-41d0-83cd-7344fcdd3e75",
       "name": "Image & Title"
     },
     {
@@ -363,10 +363,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1000,
-        220
+        -2180,
+        -180
       ],
-      "id": "be245b99-7766-4f1a-9164-f026f338dc73",
+      "id": "eea5241f-b75a-43e6-9abd-02f241cdab2e",
       "name": "Sticky Note3"
     },
     {
@@ -380,16 +380,16 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        220,
-        -100
+        -960,
+        -500
       ],
-      "id": "d1cd8c19-443a-400e-8ea8-78c514e9c2d4",
+      "id": "11f1c734-bda3-4164-a5f4-c439217dd30e",
       "name": "Send Blog",
       "webhookId": "94fa70af-f2fc-4c05-8fa1-d9f55637485f",
       "credentials": {
         "telegramApi": {
-          "id": "9jQWan3cOz3tE62s",
-          "name": "Telegram account 2"
+          "id": "L0NFKsTt2AZ2mmEZ",
+          "name": "Telegram account"
         }
       }
     },
@@ -403,16 +403,16 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        0,
-        -100
+        -1180,
+        -500
       ],
-      "id": "1bf45d2e-eab8-4093-b3fa-87a0e7c6b119",
+      "id": "baf9c287-a0d7-42e9-bfad-9e625920fcc0",
       "name": "Send Photo",
       "webhookId": "8fcbda9c-8396-41f7-8f2d-39e4ae4337c7",
       "credentials": {
         "telegramApi": {
-          "id": "9jQWan3cOz3tE62s",
-          "name": "Telegram account 2"
+          "id": "L0NFKsTt2AZ2mmEZ",
+          "name": "Telegram account"
         }
       }
     },
@@ -426,10 +426,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -1760,
-        -60
+        -2940,
+        -460
       ],
-      "id": "c7c0a34f-0ea4-4eac-9e8a-cc308e145ea5",
+      "id": "82bc336f-c96f-4397-af85-9eaa8be0d8e0",
       "name": "Sticky Note5",
       "disabled": true
     },
@@ -443,10 +443,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -120,
-        120
+        -1300,
+        -280
       ],
-      "id": "1175a580-8ae1-444b-b2ec-7b877cdee2d2",
+      "id": "bc84c266-2383-4a5c-923d-3c7178f6a00f",
       "name": "Sticky Note6"
     },
     {
@@ -459,10 +459,10 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -120,
-        -180
+        -1300,
+        -580
       ],
-      "id": "94b94662-d7c5-48da-9d4c-1d0f331a55a9",
+      "id": "cd4dccb8-0c58-486b-8b01-4c211ed27a43",
       "name": "Sticky Note7"
     },
     {
@@ -485,15 +485,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        0,
-        200
+        -1180,
+        -200
       ],
-      "id": "7f60caf9-9108-456f-a106-e06598618540",
+      "id": "30bca457-e432-46a3-a2a5-4c13fb782e7d",
       "name": "Upload",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "V2ewjiHO0o6xhQ2R",
-          "name": "nateherk88@gmail.com"
+          "id": "zopFZ1rguU2iVBqF",
+          "name": "EditImage"
         }
       }
     }
@@ -625,10 +625,11 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "bd13e436-162f-4daf-8870-4f2ef455863f",
+  "versionId": "02bd0ae1-7361-4579-91ce-8e2577e29670",
   "meta": {
-    "instanceId": "95e5a8c2e51c83e33b232ea792bbe3f063c094c33d9806a5565cb31759e1ad39"
+    "templateCredsSetupCompleted": true,
+    "instanceId": "087ba087470ae4b97567263c5dadc2f24d1f6a27717504fc17a09d11869434c6"
   },
-  "id": "RgUBWsswXoQsX2tI",
+  "id": "VPXI4i5CmxygvLXS",
   "tags": []
 }
